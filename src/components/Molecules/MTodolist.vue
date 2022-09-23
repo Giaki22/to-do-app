@@ -15,6 +15,7 @@
                     <v-list-item-title class="headline mb-1" :class="{done : task.taskCompleted}">{{task.taskName}}</v-list-item-title>
                 </v-cols>
                 <v-cols cols="4">
+                    <span>creato da: {{task.createdBy}}</span>
                     <v-btn icon color="green darken-4" @click="task.taskCompleted = !task.taskCompleted">
                         <v-icon>mdi-check</v-icon>
                     </v-btn>
@@ -63,7 +64,7 @@ export default {
     computed: {
         taskList() {
             return this.$store.state.tasks;
-        }
+        },
     }
 }
 </script>

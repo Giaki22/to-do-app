@@ -12,6 +12,7 @@
                     <v-list-item-title class="headline mb-1" :class="{done : task.taskCompleted}">{{task.taskName}}</v-list-item-title>
                 </v-cols>
                 <v-cols cols="4">
+                    <span>creato da: {{task.createdBy}}</span>
                     <v-btn icon color="green darken-4" @click="task.taskCompleted = !task.taskCompleted">
                         <v-icon>mdi-check</v-icon>
                     </v-btn>
@@ -36,11 +37,6 @@
 
 export default {
     name: "MTodolist",
-    data(){
-        return {
-            newTask: ""
-        }
-    },
     methods: {
         deleteTask(index) {
             this.$store.state.tasks.splice(index, 1)
