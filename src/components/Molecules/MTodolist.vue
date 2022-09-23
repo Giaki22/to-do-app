@@ -50,7 +50,7 @@ export default {
     },
     methods: {
         addTask() {
-            if(this.newTask != "") {
+            if(this.newTask.trim().length !== 0) {
                 this.tasks.push({taskName: this.newTask, taskCompleted: false, taskArchived: false});
                 this.newTask = "";
             }
