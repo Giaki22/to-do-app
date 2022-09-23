@@ -1,6 +1,6 @@
 <template>
   <div class="home light-green darken-2 pa-3">
-    <MTodolist />
+    <router-view/>
   </div>
 </template>
 
