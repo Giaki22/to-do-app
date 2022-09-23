@@ -53,7 +53,7 @@ export default {
     methods: {
         addTask() {
             if(this.newTask.trim().length !== 0) {
-                this.$store.state.tasks.push({taskName: this.newTask, taskCompleted: false, taskArchived: false});
+                this.$store.state.tasks.push({taskName: this.newTask, taskCompleted: false, taskArchived: false, createdBy: this.activeUser});
                 this.newTask = "";
             }
         },
@@ -65,6 +65,9 @@ export default {
         taskList() {
             return this.$store.state.tasks;
         },
+        activeUser() {
+            return this.$store.state.activeUser;
+        }
     }
 }
 </script>
