@@ -9,7 +9,7 @@
         </v-col>
     </v-row>
     <transition-group name="fade" class="d-flex flex-column px-5">
-        <v-card class="my-5 pa-5 text-center" color="success" v-for="(task, index) in this.tasks" :key="task.taskName">
+        <v-card class="my-5 pa-5 text-center" color="success" v-for="(task, index) in this.tasks" :key="task.taskName" :class="{archived : task.taskArchived}">
             <v-row class="d-flex justify-space-between">
                 <v-cols cols="8">
                     <v-list-item-title class="headline mb-1" :class="{done : task.taskCompleted}">{{task.taskName}}</v-list-item-title>
@@ -20,6 +20,9 @@
                     </v-btn>
                     <v-btn icon color="yellow" @click="modifyTask(index)">
                         <v-icon>mdi-pencil</v-icon>
+                    </v-btn>
+                    <v-btn icon color="blue" @click="task.taskArchived = !task.taskArchived">
+                        <v-icon>mdi-folder</v-icon>
                     </v-btn>
                     <v-btn icon color="red" @click="deleteTask(index)">
                         <v-icon>mdi-delete</v-icon>
@@ -72,5 +75,8 @@ export default {
 }
 .done{
     text-decoration: line-through;
+}
+.archived{
+    display: none;
 }
 </style>
